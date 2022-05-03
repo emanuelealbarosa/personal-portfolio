@@ -1,0 +1,17 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{%block title%} My blogposts! {% endblock %}
+
+{% block content%}
+<h2> I have written {{blogposts.count}} post{{blogposts.count|pluralize}}. </h2>
+
+{% for post in blogposts %}
+<h1>
+     <a href="{% url 'detail' post.id %}"> {{post.title}} </a>
+</h1>
+<p>{{post.description}} </p>
+<h5>{{ post.date }}</h5>
+{% endfor %}
+
+{% endblock %}
